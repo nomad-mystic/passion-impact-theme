@@ -1,0 +1,36 @@
+@use '../abstract/mixins';
+
+.default-page {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem auto 0;
+
+    @include mixins.media-queries('tablet') {
+        flex-direction: row;
+        padding: 0 1.6rem;
+    }
+
+    article {
+        width: 90%;
+        margin: 3.2rem auto;
+
+        @include mixins.media-queries('laptop') {
+            width: 100%;
+        }
+    }
+
+    aside {
+        width: 90%;
+        margin: 0 auto;
+
+        @include mixins.media-queries('tablet') {
+            width: 50%;
+            padding: 0 0 0 1.6rem;
+        }
+
+        @include mixins.media-queries('laptop') {
+            width: 40%;
+            padding: 0;
+        }
+    }
+}

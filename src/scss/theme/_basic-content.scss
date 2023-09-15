@@ -1,0 +1,18 @@
+@use '../placeholders/colors';
+@use '../placeholders/backgrounds';
+@use '../placeholders/headers';
+@use '../placeholders/paragraph';
+@use '../placeholders/blocks';
+@use '../placeholders/elements';
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.basic-content {
+    @extend %Colors;
+    @extend %Backgrounds;
+    @extend %Headers;
+    @extend %Paragraph;
+    @extend %Blocks;
+    @extend %Elements;
+}

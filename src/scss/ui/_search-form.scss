@@ -1,0 +1,49 @@
+@use '../base/typography';
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.passion-search-form {
+    > div {
+        display: flex;
+    }
+
+    &__input,
+    &__submit {
+        font-family: typography.$default-para-font-family;
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        padding: 0 1.6rem;
+        text-transform: uppercase;
+        height: 3.2rem;
+    }
+
+    &__input {
+        width: 60%;
+        height: 3.2rem;
+        border: 1px solid variables.$color-green;
+        border-radius: variables.$border-radius-small 0 0 variables.$border-radius-small;
+
+        &:focus {
+            outline: none;
+            border: 2px solid variables.$color-dark-green;
+        }
+    }
+
+    &__submit {
+        background: variables.$color-green;
+        color: variables.$color-white;
+        border: 1px solid variables.$color-green;
+        border-radius: 0 variables.$border-radius-small variables.$border-radius-small 0;
+        cursor: pointer;
+        transition: background .25s linear;
+
+        &:focus {
+            outline: none;
+            border: 1px solid variables.$color-dark-green;
+        }
+
+        &:hover {
+            background: variables.$color-dark-green;
+        }
+    }
+}

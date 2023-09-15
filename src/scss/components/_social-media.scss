@@ -1,0 +1,46 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.social-media {
+    display: none;
+    margin-top: 1rem;
+
+    &__twitter {
+        color: variables.$color-white;
+    }
+
+    &__facebook {
+        color: variables.$color-white;
+    }
+
+    &__instagram {
+        color: variables.$color-white;
+    }
+
+    &__youtube {
+        color: variables.$color-white;
+    }
+
+    &__linkedin {
+        color: variables.$color-white;
+    }
+
+    @include mixins.media-queries('tablet') {
+        display: flex;
+        justify-content: center;
+    }
+
+    @include mixins.media-queries('laptop') {
+        justify-content: flex-start;
+
+        a {
+            margin: 0 1rem 0 0;
+
+            i {
+                font-family: 'Font Awesome\ 5 Free', typography.$base-fonts;
+                font-weight: 900
+            }
+        }
+    }
+}

@@ -1,0 +1,513 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.header {
+    width: 100%;
+    height: auto;
+    background: variables.$color-default;
+    margin: 0 auto;
+    border-bottom: 1px solid variables.$color-white;
+
+    @include mixins.media-queries('tablet') {
+        padding: 0 2.4rem;
+    }
+
+    section:nth-child(1) {
+        @include mixins.media-queries('tablet') {
+            border-bottom: 1px solid variables.$color-white;
+        }
+    }
+
+    &__secondary-content {
+        display: none;
+        max-width: 1200px;
+
+        .sub-title {
+            font-family: typography.$default-para-font-family;
+            font-style: italic;
+            color: variables.$color-white;
+            line-height: 1.6;
+        }
+
+        .social-media {
+            font-size: 1.5rem;
+            margin-top: 0;
+
+            .link {
+                text-decoration: none;
+            }
+        }
+
+        @include mixins.media-queries('tablet') {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+    }
+
+    &__large-nav {
+        display: none;
+
+        @include mixins.media-queries('laptop') {
+            display: inline-block;
+
+            .menu-header-navigation-container {
+                display: flex;
+            }
+
+            // Shamelessly taken from https://css-tricks.com/targetting-menu-elements-submenus-navigation-bar/
+            ul.nav-primary-menu {
+                vertical-align: top;
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+                margin-right: 1.6rem;
+                height: 100%;
+
+                a {
+                    display: block;
+                    font-family: typography.$default-para-font-family;
+                    background: transparent;
+                    color: variables.$color-white;
+                    text-decoration: none;
+                    font-size: 1.6rem;
+                    position: relative;
+                    cursor: pointer;
+                    padding: 1.6rem 2.4rem;
+                }
+
+                li {
+                    position: relative;
+                    margin: 0 0 0 0;
+                }
+
+                & > li {
+                    &.current_page_item > a {
+                        color: variables.$color-green;
+                    }
+                }
+
+                ul.sub-menu {
+                    position: absolute;
+                    z-index: 100;
+                    left: -99999em;
+                    top: 4.8rem;
+                    border-radius: variables.$border-radius-small;
+                    border: 1px solid variables.$color-dark-green;
+                    border-bottom: 5px solid variables.$color-dark-green;
+                    background: variables.$color-green;
+                    height: auto;
+                    width: auto;
+
+                    li {
+                        margin: 0 0 0 0;
+                        //padding: .8rem 1.6rem;
+                        color: variables.$color-white;
+                        //border: 1px solid variables.$color-green;
+                        background: variables.$color-green;
+                        transition: all .25s ease;
+
+                        &:hover {
+                            background: variables.$color-white;
+                            color: variables.$color-green;
+                        }
+
+                        &:first-child {
+                            border-top-left-radius: variables.$border-radius-small;
+                            border-top-right-radius: variables.$border-radius-small;
+
+                            a {
+                                border-top-left-radius: variables.$border-radius-small;
+                                border-top-right-radius: variables.$border-radius-small;
+                            }
+                        }
+
+                        a {
+                            padding: 1.6rem;
+                        }
+                    }
+
+                    & > li {
+                        &.current_page_item > a {
+                            color: variables.$color-green;
+                            background: variables.$color-white;
+                        }
+                    }
+                }
+
+                & > li:hover,
+                & > li:hover > a {
+                    // submenu positioning
+                    ul.sub-menu {
+                        left: auto;
+                        min-width: 200px;
+                        right: .8rem;
+                    }
+
+                    & > li:hover > ul {
+                        left: auto;
+                        margin-top: 5px;
+                        min-width: 100%;
+                    }
+
+                    & > li li:hover > ul {
+                        left: 100%;
+                        margin-left: 1px;
+                        top: -1px;
+                    }
+
+                }
+
+                 li:hover > a {
+                    color: variables.$color-green;
+                }
+
+                .menu-item-has-children {
+
+                }
+
+                // This is kinda complicated, but this is the second level navigation
+                .sub-menu {
+                    li.is-not-active ul.sub-menu {
+                        visibility: hidden;
+                        opacity: 0;
+                        left: 100%;
+                        top: 0;
+                        transition: all 1s ease;
+                    }
+
+                    li.is-not-active:hover ul.sub-menu {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+
+                    li.is-not-active > a {
+                        width: 100% !important; // Force this
+                        cursor: default;
+                        position: relative;
+
+                        &:after {
+                            right: 8px;
+                            content: '';
+                            background-image: url('../img/angle-right-solid-white.svg');
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            display: block;
+                            width: 16px;
+                            height: 16px;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            transform-origin: center;
+                            transition: all .25s ease;
+
+                            @include mixins.media-queries('tablet') {
+                                right: 4px;
+                            }
+                        }
+
+                        @include mixins.media-queries('tablet') {
+                            &:hover {
+                                &:after {
+                                    transform: translateY(-50%) rotate(90deg);
+                                    background-image: url('../img/angle-right-solid.svg');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include mixins.media-queries('laptop') {
+            ul {
+                font-size: 1.5rem;
+
+                li {
+                    margin: 0 0 0 2.5rem;
+                }
+            }
+        }
+    }
+
+    &__main-content-flex {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        height: auto;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        @include mixins.media-queries('laptop') {
+            padding: 1rem 0;
+        }
+    }
+
+    &__nav-container-flex {
+        @include mixins.media-queries('laptop') {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__branding-nav-branding-flex {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    &__branding {
+        order: 1;
+
+        .site-link {
+            width: 10rem;
+            display: block;
+
+            @include mixins.media-queries('laptop') {
+                width: 12rem;
+            }
+        }
+
+        .title {
+            h2 {
+                display: none;
+                font-family: typography.$default-header-font-family;
+                color: variables.$color-white;
+
+                @include mixins.media-queries('tablet') {
+                    display: block;
+                    margin: 0 0 0 1rem;
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        img {
+            @include mixins.responsive-image();
+        }
+
+        @include mixins.media-queries('tablet') {
+            display: flex;
+            align-items: center;
+            margin: 0 0 0 1rem;
+        }
+
+        @include mixins.media-queries('laptop') {
+            margin: 0 0 0 0;
+        }
+    }
+
+    &__nav-primary {
+        order: 0;
+        max-width: variables.$max-width;
+        margin: 0 auto;
+        color: variables.$color-white;
+    }
+
+    &__nav-bars {
+        font-size: 3rem;
+        cursor: pointer;
+
+        svg {
+            path {
+                fill: variables.$color-white;
+            }
+        }
+
+        @include mixins.media-queries('laptop') {
+            display: none;
+        }
+    }
+
+    &__donate.non-mobile {
+        display: none;
+        order: 2;
+
+        a {
+            text-transform: uppercase;
+
+            &:hover {
+                color: variables.$color-white;
+            }
+        }
+
+        @include mixins.media-queries('laptop') {
+            display: block;
+            margin: 0 0 0 2rem;
+        }
+    }
+
+    ul.nav-primary-menu {
+
+        > .menu-item:not(.menu-item-has-children) {
+            margin-right: -16px;
+        }
+
+        // Setup the arrows for items with children
+        > .menu-item.menu-item-has-children {
+            position: relative;
+
+            > a {
+                position: relative;
+                width: fit-content;
+
+                &::after {
+                    content: '';
+                    background-image: url('../img/angle-right-solid.svg');
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    position: absolute;
+                    right: -4%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    transform-origin: center;
+                    transition: all .25s ease;
+
+                    @include mixins.media-queries('tablet') {
+                        right: 4px;
+                    }
+                }
+
+                @include mixins.media-queries('tablet') {
+                    &:hover {
+                        &:after {
+                            transform: translateY(-50%) rotate(90deg);
+                        }
+                    }
+                }
+
+                &.is-active {
+                    &::after {
+                        transform: translateY(-50%) rotate(90deg);
+                    }
+                }
+            }
+
+            @include mixins.media-queries('tablet') {
+                &.is-active {
+                    > a::after {
+                        transform: translateY(-50%) rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+
+    // Mobile nav
+    &__nav-primary-mobile {
+        #nav-primary-menu-container {
+            display: block;
+            height: 100vh;
+            width: 100vw;
+            background: variables.$color-black;
+            overflow: scroll;
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            right: -100vw;
+            bottom: 0;
+            transition: right .35s ease;
+
+            > nav {
+                padding: 1.6rem 0 2.4rem;
+            }
+
+            &.is-active {
+                right: 0;
+            }
+
+            @include mixins.media-queries('tablet') {
+                display: none;
+            }
+
+            .nav-primary-menu {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                margin-top: 5.6rem;
+                border-top: 1px solid variables.$color-green;
+                padding-top: 1.6rem;
+
+                @include mixins.link-text();
+
+                .sub-menu {
+                    display: none;
+                    margin-left: 1.6rem;
+
+                    &.is-active {
+                        display: block;
+                    }
+                }
+
+                a {
+                    color: white;
+                    font-size: 2rem;
+                    display: block;
+                    font-family: "Ubuntu", "Arial", "Helvetica", sans-serif;
+                    background: transparent;
+                    text-decoration: none;
+                    position: relative;
+                    cursor: pointer;
+                    padding: .8rem 1.6rem;
+                    overflow-wrap: break-word;
+                }
+            }
+
+            .header__donate {
+                width: 40%;
+                margin: 1.6rem 0 0 1.6rem;
+            }
+
+            .social-media {
+                display: flex;
+                margin-top: 2.4rem;
+
+                &__link-container {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    margin: 0 1.6rem;
+
+                    svg {
+                        width: 2.4rem;
+                        height: 2.4rem;
+                    }
+                }
+            }
+
+            .close-icon-container {
+                position: relative;
+
+                .close-span {
+                    position: absolute;
+                    right: 1.2rem;
+                    top: .8rem;
+
+                    .close-i {
+                        color: white;
+                        transform: rotate(45deg);
+                        transform-origin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    hr {
+        display: none;
+
+        @include mixins.media-queries('tablet') {
+            display: inline-block;
+            width: 100%;
+        }
+    }
+}

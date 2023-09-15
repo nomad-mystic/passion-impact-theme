@@ -1,0 +1,9 @@
+@use '../abstract/variables';
+
+.little-green-light {
+    &__form {
+        border: 1px solid variables.$color-green;
+        padding: 1.6rem 0;
+        border-radius: 2px;
+    }
+}

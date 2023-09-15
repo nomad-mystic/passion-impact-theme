@@ -1,0 +1,87 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+@use './typography';
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: variables.$color-white;
+    min-height: 100vh;
+    height: 100%;
+    font-family: typography.$default-para-font-family;
+}
+
+body.noScroll {
+    overflow: hidden;
+}
+
+// For the whole content wrapper
+#passion-app {
+    margin: 0 auto;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    width: 90%;
+
+    @include mixins.media-queries('laptop') {
+        width: 100%
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:visited {
+            text-decoration: none;
+        }
+
+        &:active {
+            text-decoration: none;
+        }
+    }
+}
+
+.dark-background {
+    background-color: variables.$color-default;
+}
+
+a.basic-link {
+    text-decoration: none;
+    color: variables.$color-green;
+    transition: color .25s linear;
+
+    &:visited {
+        text-decoration: none;
+        color: variables.$color-light-green;
+    }
+
+    &:active {
+        text-decoration: none;
+        color: variables.$color-light-green;
+    }
+
+    &:hover {
+        text-decoration: none;
+        color: variables.$color-dark-green;
+    }
+}

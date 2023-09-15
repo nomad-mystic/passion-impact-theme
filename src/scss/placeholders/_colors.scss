@@ -1,0 +1,75 @@
+@use '../abstract/variables';
+
+%Colors {
+    .has-default-color {
+        color: variables.$color-default;
+    }
+
+    .has-white-color {
+        color: variables.$color-white;
+    }
+
+    .has-transparent-color {
+        color: transparent;
+    }
+
+    .has-lightest-green-color {
+        color: variables.$color-lightest-green;
+    }
+
+    .has-light-green-color {
+        color: variables.$color-light-green;
+    }
+
+    .has-green-color {
+        color: variables.$color-green;
+    }
+
+    .has-dark-green-color {
+        color: variables.$color-dark-green;
+    }
+
+    .has-darkest-green-color {
+        color: variables.$color-darkest-green;
+    }
+
+    .has-lightest-yellow-color {
+        color: variables.$color-lightest-yellow;
+    }
+
+    .has-light-yellow-color {
+        color: variables.$color-light-yellow;
+    }
+
+    .has-yellow-color {
+        color: variables.$color-yellow;
+    }
+
+    .has-dark-yellow-color {
+        color: variables.$color-dark-yellow;
+    }
+
+    .has-darkest-yellow-color {
+        color: variables.$color-darkest-yellow;
+    }
+
+    .has-lightest-red-color {
+        color: variables.$color-lightest-red;
+    }
+
+    .has-light-red-color {
+        color: variables.$color-light-red;
+    }
+
+    .has-red-color {
+        color: variables.$color-red;
+    }
+
+    .has-dark-red-color {
+        color: variables.$color-dark-red;
+    }
+
+    .has-darkest-red-color {
+        color: variables.$color-darkest-red;
+    }
+}

@@ -1,0 +1,38 @@
+@use '../abstract/animations';
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+// https://codepen.io/mrrocks/pen/EiplA
+.spinner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 2.4rem;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+
+    @include mixins.media-queries('tablet') {
+        top: 0;
+    }
+
+    .spinner-svg {
+        animation: rotator variables.$spinner-duration linear infinite;
+        stroke: variables.$color-green;
+    }
+
+    .path {
+        stroke-dasharray: variables.$spinner-offset;
+        stroke-dashoffset: 0;
+        transform-origin: center;
+        animation: dash variables.$spinner-duration ease-in-out infinite;
+    }
+
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+}

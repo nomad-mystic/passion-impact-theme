@@ -1,0 +1,35 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+@use '../abstract/mixins/content';
+
+%Paragraph {
+    p {
+        @include content.content-paragraph();
+    }
+
+    cite {
+        @include content.content-paragraph();
+    }
+
+    // Paragraphs
+    p.has-small-font-size {
+        font-size: 1.2rem;
+    }
+
+    p.has-normal-font-size {
+        font-size: 1.6rem;
+    }
+
+    p.has-medium-font-size {
+        font-size: 2.4rem;
+    }
+
+    p.has-large-font-size {
+        font-size: 3.6rem;
+    }
+
+    p.has-huge-font-size {
+        font-size: 4.8rem;
+    }
+}

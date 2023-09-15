@@ -1,0 +1,26 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+@use '../abstract/mixins/content';
+@use '../abstract/mixins/pages';
+
+.page-header-container {
+    margin-top: 6rem;
+}
+
+.page-title {
+    @include pages.pages-titles();
+}
+
+.page-sub-title {
+    @include pages.pages-sub-titles();
+    text-align: center;
+}
+
+.page-image {
+    @include mixins.responsive-image();
+}
+
+.page-paragraph {
+    @include pages.pages-paragraph();
+}

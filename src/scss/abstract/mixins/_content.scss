@@ -1,0 +1,32 @@
+@use '../../abstract/variables';
+@use '../../base/typography';
+@use '../../abstract/mixins';
+
+@mixin content-paragraph() {
+    font-family: typography.$default-para-font-family;
+    font-weight: normal;
+    color: variables.$color-default;
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+@mixin content-titles() {
+    font-family: typography.$default-header-font-family;
+    font-weight: bold;
+    color: variables.$color-default;
+    line-height: 1.2;
+}
+
+@mixin content-sub-titles() {
+    font-family: typography.$default-para-font-family;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: variables.$color-default;
+}
+
+@mixin responsive-image() {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}

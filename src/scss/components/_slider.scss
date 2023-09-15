@@ -1,0 +1,99 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.home-swiper {
+    max-width: 1024px;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    margin: 1rem auto;
+
+    @include mixins.media-queries('tablet') {
+        height: 400px;
+        margin: 3.2rem auto 0;
+    }
+
+    .swiper-container {
+        height: 100%;
+
+        @include mixins.media-queries('tablet') {
+            height: 400px;
+        }
+
+        .swiper-pagination-bullets {
+            bottom: 30px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: variables.$color-green;
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+
+        @include mixins.media-queries('tablet') {
+            flex-direction: row;
+        }
+
+        section {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @include mixins.media-queries('tablet') {
+                width: 50%;
+                height: 80%;
+            }
+
+            &:first-child {
+                order: 2;
+
+                @include mixins.media-queries('tablet') {
+                    order: 1;
+                }
+            }
+        }
+    }
+
+    &__content-container {
+        height: auto;
+        padding: 3.2rem 1rem;
+        margin: 0 auto;
+
+        @include mixins.media-queries('tablet') {
+            height: 400px;
+            padding: 3.2rem 0 3.2rem 3.2rem;
+            margin: 0 auto 0 4.8rem;
+        }
+    }
+
+    &__image-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 1rem;
+
+        @include mixins.media-queries('tablet') {
+            height: 400px;
+            padding: 0 3.3rem;
+        }
+
+        .image {
+            width: 100%;
+            overflow: hidden;
+            height: 0;
+            padding-bottom: 70%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            box-shadow: -5px 11px 12px -5px rgba(0, 0, 0, .25);
+        }
+    }
+}
+

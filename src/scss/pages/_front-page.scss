@@ -1,0 +1,759 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.home {
+    .slider-component {
+        background-color: variables.$color-white;
+        padding: 0;
+    }
+
+    .module-title {
+        @include mixins.module-titles('mobile');
+        color: variables.$color-green;
+
+        a {
+            color: variables.$color-green;
+        }
+    }
+
+    .home-create-impact {
+        margin: 7.2rem auto 0;
+        text-align: center;
+
+        @include mixins.media-queries('laptop') {
+            width: 80%;
+        }
+
+        .module-sub-title {
+            @include mixins.module-sub-titles('mobile');
+        }
+
+        .details {
+            @include mixins.media-queries('tablet') {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                margin-top: 2.5rem;
+            }
+        }
+
+        .detail {
+            padding: 1rem 2rem;
+
+            @include mixins.media-queries('laptop') {
+                padding: 1rem;
+            }
+
+            &__title {
+                @include mixins.detail-title('mobile');
+                margin: 1rem 0 .8rem;
+
+                @include mixins.media-queries('tablet') {
+                    margin: 1rem 0 1.6rem;
+                }
+            }
+
+            &__copy-text {
+                @include mixins.detail-copy-text('mobile');
+                padding: 0;
+
+                @include mixins.media-queries('tablet') {
+                    padding: 0 4rem;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+
+                    padding: 0 6rem;
+                }
+            }
+        }
+    }
+
+    .home-get-involved {
+        margin: 2rem auto 0;
+        text-align: center;
+
+        @include mixins.media-queries('tablet') {
+            margin: 10rem auto 0;
+        }
+
+        @include mixins.media-queries('laptop') {
+            width: 90%;
+            margin: 5rem auto 0;
+        }
+
+        .details {
+            @include mixins.media-queries('tablet') {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @include mixins.media-queries('laptop') {
+                margin: 1rem auto 0;
+            }
+        }
+
+        .detail {
+            &__title {
+                @include mixins.detail-title('mobile');
+            }
+
+            &__image-container {
+                width: 8rem;
+                margin: 1.6rem auto 2rem;
+
+                @include mixins.media-queries('tablet') {
+                    margin: 4rem auto 2rem;
+                }
+
+                .image {
+                    @include mixins.responsive-image();
+                }
+            }
+
+            &__copy-text {
+                @include mixins.detail-copy-text('mobile');
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+                }
+            }
+
+            &__link {
+                display: block;
+                width: 50%;
+                margin: 0 auto;
+                padding: 1.6rem 1rem;
+                font-family: typography.$default-para-font-family;
+                font-size: 1.5rem;
+                color: variables.$color-green;
+
+                @include mixins.media-queries('tablet') {
+                    padding: 2.4rem 1rem;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+                }
+            }
+        }
+    }
+
+    .home-testimonials {
+        margin: 2rem auto 0;
+        text-align: center;
+
+        @include mixins.media-queries('tablet') {
+            margin: 10rem auto 0;
+        }
+
+        @include mixins.media-queries('laptop') {
+            margin: 5rem auto 0;
+            width: 80%;
+            padding: 6rem 0 7rem;
+        }
+
+        .mobile-view {
+            @include mixins.media-queries('tablet') {
+                display: none;
+            }
+        }
+
+        .non-mobile-view {
+            display: none;
+
+            @include mixins.media-queries('tablet') {
+                display: block;
+            }
+        }
+
+        .module-title {
+            color: variables.$color-white;
+            padding: 2rem 2rem 1rem;
+            line-height: 1.6;
+
+            @include mixins.media-queries('tablet') {
+                padding: 1rem 2rem;
+            }
+        }
+
+        .detail {
+            display: flex;
+            flex-direction: column;
+            margin: 1.6rem auto;
+
+            @include mixins.media-queries('tablet') {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                grid-template-rows: 1fr;
+                margin: 2.4rem auto;
+            }
+
+            .col:last-child .row {
+                display: flex;
+                padding: 0 0 0 2.4rem;
+                flex-direction: column;
+
+                @include mixins.media-queries('tablet') {
+                    width: 100%;
+                    margin: 2rem 3rem 0 auto;
+                    flex-direction: row;
+                }
+            }
+
+            &__image-container {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                margin: 1rem 3rem 0 auto;
+
+                @include mixins.media-queries('tablet') {
+                    width: 100%;
+                    margin: 2rem 3rem 0 auto;
+                }
+
+                .image {
+                    margin: 0 auto;
+                    border-radius: 50%;
+                    display: block;
+                    width: 128px;
+                    max-width: 100%;
+                    height: 128px;
+                    object-fit: cover;
+                    max-height: 100%;
+
+                    @include mixins.media-queries('tablet') {
+                        margin: 0 24px 0 auto;
+                    }
+                }
+            }
+
+            &__copy-text {
+                @include mixins.detail-copy-text('mobile');
+                color: variables.$color-white;
+                padding: 1.6rem;
+                margin: 0 auto;
+
+                @include mixins.media-queries('tablet') {
+                    text-align: left;
+                    padding: 0 4rem 0 2.4rem;
+                    border-left: 2px solid #1fa67a;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+
+                    margin: 2rem auto 1.6rem;
+                    padding: 0 11rem 0 2.4rem;
+                }
+            }
+
+            &__author,
+            &__relationship {
+                font-style: italic;
+                font-size: 1.5rem;
+                font-family: typography.$default-para-font-family;
+            }
+
+            &__author {
+                font-weight: bold;
+                color: variables.$color-light-green;
+                margin: .8rem auto;
+
+                @include mixins.media-queries('tablet') {
+                    display: block;
+                    margin: 0 1rem 0 0;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+                }
+            }
+
+            &__relationship {
+                color: variables.$color-white;
+                margin: .8rem auto;
+
+                @include mixins.media-queries('tablet') {
+                    display: block;
+                    margin: unset;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+                }
+            }
+        }
+    }
+
+    .home-our-team {
+        margin: 2rem auto 0;
+        text-align: center;
+        width: 100%;
+
+        @include mixins.media-queries('tablet') {
+            margin: 10rem auto 0;
+            width: 80%;
+        }
+
+        @include mixins.media-queries('laptop') {
+            margin: 5rem auto 0;
+        }
+
+        .module-sub-title {
+            @include mixins.module-sub-titles('mobile');
+        }
+
+        .details {
+            @include mixins.media-queries('tablet') {
+                display: grid;
+                // Controlled in the head template
+                margin: 5rem auto;
+            }
+
+            @include mixins.media-queries('laptop') {
+                margin: 2rem auto;
+                width: 100%;
+            }
+        }
+
+        .detail {
+            margin: 2rem auto;
+
+            &__image-container {
+                width: 30%;
+                margin: 0 auto 1.6rem;
+
+                @include mixins.media-queries('tablet') {
+                    width: 50%;
+                    margin: 0 auto 3rem;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    width: 45%;
+                }
+
+                .image {
+                    margin: 0 auto;
+                    border-radius: 50%;
+                    display: block;
+                    width: 128px;
+                    max-width: 100%;
+                    height: 128px;
+                    object-fit: cover;
+                    max-height: 100%;
+
+                    @include mixins.media-queries('tablet') {
+                        margin: 0 auto;
+                    }
+                }
+            }
+
+            &__member-name {
+                font-family: typography.$default-para-font-family;
+                font-size: 1.5rem;
+                text-align: center;
+                color: variables.$color-default;
+                font-weight: 600;
+                margin: 0.8rem auto;
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+                }
+            }
+
+            &__member-title {
+                font-family: typography.$default-para-font-family;
+                font-size: 1.5rem;
+                text-align: center;
+                color: variables.$color-default;
+                font-weight: 400;
+                margin: .8rem auto;
+
+                @include mixins.media-queries('tablet') {
+                    line-height: 2;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+                }
+            }
+
+            &__member-organization {
+                font-family: typography.$default-para-font-family;
+                font-size: 1.5rem;
+                text-align: center;
+                color: variables.$color-default;
+                font-weight: 400;
+                margin: 0 auto 2rem;
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+                }
+            }
+
+            &__copy-text {
+                @include mixins.detail-copy-text('mobile');
+                padding: 0 2.4rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+
+                @include mixins.media-queries('tablet') {
+                    padding: 0 4rem;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+                }
+            }
+
+            &__social-container {
+                padding: 0 4rem;
+                margin: 1rem 4rem;
+                border-bottom: 2px solid variables.$base-grey;
+
+                @include mixins.copy-text-size('mobile');
+
+                @include mixins.media-queries('tablet') {
+                    border-bottom: none;
+                }
+
+                .link {
+                    display: inline-block;
+                    color: variables.$base-mid-grey;
+                    text-decoration: none;
+                    padding: 0.5rem;
+                }
+
+                .link:last-child {
+                    margin: 0 auto 1rem;
+                }
+            }
+        }
+    }
+
+    .home-our-board {
+        margin: 2rem auto 3rem;
+        text-align: center;
+
+        @include mixins.media-queries('laptop') {
+            width: 100%;
+        }
+
+        .module-title {
+            font-size: 2rem;
+        }
+
+        .module-sub-title {
+            @include mixins.module-sub-titles('mobile');
+
+            @include mixins.media-queries('tablet') {
+                padding: 0 4rem;
+            }
+        }
+
+        .board-images {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 3rem auto;
+
+            @include mixins.media-queries('tablet') {
+                margin: 3rem auto 5.6rem;
+                display: grid;
+                grid-template-columns: repeat(var(--number-of-members), auto);
+                grid-template-rows: 1fr;
+                width: auto;
+            }
+
+            &__image-container {
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 124px;
+                height: 124px;
+                border-radius: 50%;
+                background-position: 50% 50%;
+                cursor: pointer;
+                border: 3px solid variables.$color-background;
+
+                @include mixins.media-queries('tablet') {
+                    width: 90px;
+                    height: 90px;
+                }
+
+                &.is-active-member-image {
+                    border: 3px solid variables.$color-green;
+                }
+            }
+        }
+
+        .detail {
+            @include mixins.media-queries('tablet') {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            &__extras {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+                @include mixins.media-queries('tablet') {
+                    justify-content: center;
+                    width: 80%;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    width: 100%;
+                }
+
+                .member-name {
+                    @include mixins.module-sub-titles('mobile');
+
+                    font-weight: bold;
+
+                    @include mixins.media-queries('tablet') {
+                        font-size: 2.5rem;
+                    }
+
+                    @include mixins.media-queries('laptop') {
+                        font-size: 2rem;
+                    }
+                }
+
+                .member-position {
+                    @include mixins.module-sub-titles('mobile');
+
+                    @include mixins.media-queries('laptop') {
+                        @include mixins.copy-text-size('laptop');
+                    }
+                }
+
+                .member-location {
+                    display: none;
+
+                    @include mixins.media-queries('tablet') {
+                        display: block;
+
+                        @include mixins.module-sub-titles('mobile');
+                    }
+
+                    @include mixins.media-queries('laptop') {
+                        @include mixins.copy-text-size('laptop');
+                    }
+                }
+
+                .copy-text {
+                    @include mixins.detail-copy-text('mobile');
+
+                    @include mixins.media-queries('tablet') {
+                        margin: 1.5rem auto;
+                        padding: 0 1rem;
+                    }
+
+                    @include mixins.media-queries('laptop') {
+                        @include mixins.copy-text-size('laptop');
+                        padding: 0 4rem;
+                    }
+                }
+
+                .social-container {
+                    padding: 0 4rem;
+                    margin: 1rem 4rem;
+
+                    @include mixins.copy-text-size('mobile');
+
+                    .link {
+                        display: inline-block;
+                        color: variables.$base-mid-grey;
+                        text-decoration: none;
+                        padding: 0.5rem;
+                    }
+
+                    .link:last-child {
+                        margin: 0 auto 1rem;
+                    }
+                }
+            }
+
+            &__image-container {
+                width: 80%;
+                margin: 4rem auto 2rem;
+
+                @include mixins.media-queries('tablet') {
+                    margin: 0 auto;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    width: 512px;
+                }
+
+                .image {
+                    @include mixins.responsive-image();
+                    height: 512px;
+                    object-fit: cover;
+                    max-height: 512px;
+                }
+            }
+        }
+    }
+
+    .home-committees {
+        margin: 2rem auto 3rem;
+        text-align: center;
+
+        .module-title {
+            font-size: 2rem;
+        }
+
+        .module-sub-title {
+            @include mixins.module-sub-titles('mobile');
+
+            @include mixins.media-queries('tablet') {
+                padding: 0 7rem;
+            }
+
+            @include mixins.media-queries('laptop') {
+                width: 75%;
+            }
+        }
+
+        .mobile-view {
+            @include mixins.media-queries('tablet') {
+                display: none;
+            }
+        }
+
+        .non-mobile-view {
+            //display: none;
+
+            @include mixins.media-queries('tablet') {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                margin: 4rem auto 0;
+
+                section {
+                    display: block;
+                    width: 33%;
+                }
+            }
+        }
+
+        .detail {
+            margin: 2.4rem auto;
+
+            &__title {
+                @include mixins.detail-title('mobile');
+            }
+
+            &__image-container {
+                width: 35%;
+                margin: 4rem auto 2rem;
+
+                @include mixins.media-queries('tablet') {
+                    width: 25%;
+                }
+
+                .image {
+                    @include mixins.responsive-image();
+                }
+            }
+
+            &__copy-text {
+                @include mixins.detail-copy-text('mobile');
+
+                @include mixins.media-queries('laptop') {
+                    @include mixins.copy-text-size('laptop');
+                    margin-bottom: .8rem;
+                }
+            }
+        }
+
+        .glide__track {
+            position: relative;
+            padding: 0 0 2rem 0;
+
+            .glide__bullets {
+                bottom: 0;
+            }
+
+            .glide__bullet {
+                border: 2px solid variables.$base-grey;
+
+                &--active {
+                    background: variables.$base-dark-grey;
+                }
+            }
+        }
+
+        .glider__arrow-buttons {
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            top: 4rem;
+            width: 100%;
+
+            button {
+                background: transparent;
+                border: none;
+            }
+        }
+    }
+
+    // For the plain controls
+    .home {
+        .plain {
+            @include mixins.media-queries('tablet') {
+                margin: 7rem auto 12rem;
+            }
+
+            &__controls {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+
+                @include mixins.media-queries('tablet') {
+                    width: 40%;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    width: 30%;
+                }
+
+                p {
+                    font-family: typography.$default-para-font-family;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    width: 50%;
+                    padding: 1.5rem;
+                }
+            }
+
+            &__committees {
+                visibility: visible;
+                opacity: 1;
+                transition: all 5s ease-in-out;
+            }
+        }
+    }
+}
+
+.is-panel-active {
+    border-bottom: 3px solid variables.$color-green;
+}
+
+.is-invisible {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}

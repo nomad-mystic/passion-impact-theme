@@ -1,0 +1,15 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.blog {
+    &__pagination {
+        display: flex;
+        justify-content: center;
+        margin: 4% auto;
+    }
+
+    &__post-older-posts {
+        margin-right: 4rem;
+    }
+}

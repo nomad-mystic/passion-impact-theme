@@ -1,0 +1,9 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.get-involved {
+    h1 {
+        font-family: typography.$default-header-font-family;
+    }
+}

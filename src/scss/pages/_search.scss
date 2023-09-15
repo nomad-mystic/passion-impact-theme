@@ -1,0 +1,15 @@
+@use '../base/typography';
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.search-page {
+    &__results {
+        form {
+            margin-bottom: 4.8rem;
+        }
+
+        h4 {
+            text-align: left;
+        }
+    }
+}

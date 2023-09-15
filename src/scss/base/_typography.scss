@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+$base-fonts: 'Arial', 'Helvetica', sans-serif;
+$default-header-font-family: 'Oswald', 'Arial', 'Helvetica', sans-serif;
+$default-para-font-family: 'Oswald', 'Arial', 'Helvetica', sans-serif;
+$font-awesome: 'Font Awesome\ 5 Free';
+
+@font-face {
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Oswald';
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+}

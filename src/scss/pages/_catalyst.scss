@@ -1,0 +1,9 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.catalyst {
+    h1 {
+        font-family: typography.$default-header-font-family;
+    }
+}

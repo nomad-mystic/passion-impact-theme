@@ -1,0 +1,67 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.accordion__container {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top: 1px solid variables.$color-default;
+    border-right: 1px solid variables.$color-default;
+    border-left: 1px solid variables.$color-default;
+
+    & > div:nth-child(1) > button {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+
+    .accordion-wrapper {
+        border-bottom: 1px solid variables.$color-default;
+
+        /* Style the buttons that are used to open and close the accordion panel */
+        .accordion-title {
+            background-color: variables.$color-white;
+            font-family: typography.$default-para-font-family;
+            color: variables.$color-green;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 1.8rem;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        //.accordion-title:hover,
+        .active {
+            background-color: variables.$color-green;
+            color: variables.$color-white;
+
+        }
+
+        .accordion-title:after {
+            content: '\002B';
+            color: variables.$color-green;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+            transition: all 0.25s ease;
+        }
+
+        .active:after {
+            content: "\2212";
+            color: variables.$color-white;
+        }
+
+        /* Style the accordion panel. Note: hidden by default */
+        .panel {
+            @include mixins.copy-text();
+            background-color: white;
+            display: none;
+            overflow: hidden;
+            padding: 2rem 1.8rem 3rem;
+
+        }
+    }
+}

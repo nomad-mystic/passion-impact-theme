@@ -1,0 +1,21 @@
+.supporters {
+    // For the details partial
+    &__detail {
+        margin: 3.2rem auto;
+    }
+
+    &__detail-image-container {
+        max-width: 200px;
+    }
+
+    &__details-title {
+        margin: 2.4rem auto;
+        text-align: left;
+    }
+
+    &__detail-name {
+        text-align: left;
+        font-size: 1.6rem;
+        margin: 1.6rem auto;
+    }
+}

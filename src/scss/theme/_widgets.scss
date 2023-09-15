@@ -1,0 +1,98 @@
+@use '../placeholders/headers';
+@use '../placeholders/paragraph';
+@use '../base/typography';
+@use '../abstract/mixins';
+@use '../abstract/variables' as var;
+
+.widget {
+    margin: 3.2rem auto;
+    max-width: 300px;
+
+    @include mixins.media-queries('tablet') {
+        margin: 3.2rem 0 3.2rem auto;
+    }
+
+    &.widget_archive,
+    &.widget_categories,
+    &.widget_pages,
+    &.widget_meta,
+    &.widget_nav_menu,
+    &.widget_recent_comments,
+    &.widget_recent_entries,
+    &.widget_media_image,
+    &.widget_rss {
+
+        @extend %Headers;
+        @extend %Paragraph;
+
+        h3 {
+
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+        }
+    }
+
+    &.widget_nav_menu {
+        ul {
+            li {
+                margin-top: 1rem;
+                font-size: 1.6rem;
+                line-height: 1.4rem;
+
+                a {
+                    text-decoration: none;
+                    color: #1fa67a;
+                }
+            }
+        }
+    }
+
+    &.widget_recent_entries {
+        ul {
+            li {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: flex-start;
+                margin: 1.6rem auto;
+
+                @include mixins.link-text();
+
+                a {
+                    width: 70%;
+                    margin-top: .2rem;
+                    margin-left: .8rem;
+                    font-size: 1.6rem;
+                    line-height: 1.4rem;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                span {
+                    width: 30%;
+                    display: block;
+                    border-radius: 4px;
+                    padding: 1.2rem;
+                    font-family: typography.$default-para-font-family;
+                    font-size: 1.2rem;
+                    color: var.$color-white;
+                    background: var.$color-green;
+                    text-decoration: none;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &.widget_media_image {
+        max-width: 300px;
+
+        img {
+            @include mixins.responsive-image();
+        }
+    }
+}

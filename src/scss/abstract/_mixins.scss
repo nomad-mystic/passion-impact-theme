@@ -1,0 +1,206 @@
+@use '../abstract/variables';
+@use '../base/typography';
+
+@mixin responsive-image() {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+@mixin link-text() {
+    a {
+        text-decoration: none;
+        color: variables.$color-green;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:visited {
+            text-decoration: none;
+            color: variables.$color-light-green;
+        }
+
+        &:active {
+            text-decoration: none;
+            color: variables.$color-light-green;
+        }
+    }
+}
+
+// Media quires
+$tablet-width: 768px;
+$laptop-width: 1024px;
+$desktop-width: 1600px;
+
+@mixin media-queries ($size) {
+    @if ('tablet' == $size) {
+        @media (min-width: #{$tablet-width}) {
+            @content;
+        }
+    } @else if ('laptop' == $size) {
+        @media (min-width: #{$laptop-width}) {
+            @content;
+        }
+    } @else if ('desktop' == $size) {
+        @media (min-width: #{$desktop-width}) {
+            @content;
+        }
+    }
+}
+
+// Module level (home page)
+@mixin module-titles ($size) {
+    font-family: typography.$default-header-font-family;
+    text-align: center;
+    font-weight: bold;
+    color: variables.$color-default;
+    font-size: 3.2rem;
+
+    @if ('mobile' == $size) {
+        font-size: 3.4rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@mixin module-sub-titles ($size) {
+    @if ('mobile' == $size) {
+        font-family: typography.$default-para-font-family;
+        font-size: 1.6rem;
+        text-align: center;
+        line-height: 1.5;
+        color: variables.$base-mid-grey;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+}
+
+@mixin detail-title ($size: '') {
+    font-family: typography.$default-header-font-family;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: variables.$base-dark-grey;
+
+    margin: 1rem 0 .8rem;
+
+    @include media-queries('tablet') {
+        margin: 1rem 0 1.6rem;
+    }
+}
+
+@mixin detail-copy-text ($size) {
+    //@if ('mobile' == $size) {
+        font-family: typography.$default-para-font-family;
+        font-size: 1.6rem;
+        text-align: center;
+        line-height: 1.5;
+        color: variables.$base-mid-grey;
+        padding: 0 4rem;
+    //}
+}
+
+@mixin copy-text() {
+    font-family: typography.$default-para-font-family;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: variables.$color-default;
+}
+
+@mixin copy-text-size($size) {
+    @if ('mobile' == $size) {
+
+        font-size: 1.6rem;
+
+    } @else if ('tablet' == $size) {
+
+        font-size: 1.6rem;
+
+    } @else if ('laptop' == $size) {
+
+        font-size: 1.6rem;
+
+    }
+}
+
+/**
+ NAME: rounded-button
+ DESC: Mixin for a button which width is based on the text size
+ ARGS:
+        - $padding       > The padding of the button
+        - $solid         > Whether to make the button solid or hollow (Optional)
+        - $side-padding  > How much more side padding to add (Optional)
+        - $left-rounded  > Should the left side of the button be rounded? (Optional)
+        - $right-rounded > Should the right side of the button be rounded? (Optional)
+        - $radius        > The border radius of the button
+*/
+@mixin rounded-button($padding, $solid: true, $side-padding: 2rem, $left-rounded: true, $right-rounded: true, $radius: 3rem) {
+    padding: $padding ($padding + $side-padding);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: white;
+
+    @if $left-rounded {
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
+    }
+
+    @if $right-rounded {
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
+    }
+
+    @if $solid {
+        background: variables.$color-green;
+    } @else {
+        border: solid 1px variables.$color-white;
+    }
+
+    &:hover {
+        background: variables.$color-white;
+        color: #1fa67a;
+    }
+}
+
+/**
+ NAME: rounded-button-fixed
+ DESC: Mixin for a button which width is a fixed size
+ ARGS:
+        - $padding       > The padding of the button
+        - $width         > The width of the button
+        - $solid         > Whether to make the button solid or hollow (Optional)
+        - $left-rounded  > Should the left side of the button be rounded? (Optional)
+        - $right-rounded > Should the right side of the button be rounded? (Optional)
+        - $radius        > The border radius of the button
+*/
+@mixin rounded-button-fixed($padding, $width, $solid: true, $left-rounded: true, $right-rounded: true, $radius: 3rem) {
+    display: inline-block;
+    width: $width;
+    padding: $padding 0;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease;
+
+    @if $left-rounded {
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
+    }
+
+    @if $right-rounded {
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
+    }
+
+    @if $solid {
+        background: variables.$color-green;
+    } @else {
+        border: solid 1px variables.$color-white;
+    }
+
+    &:hover {
+        background: variables.$color-white;
+        color: variables.$color-green;
+    }
+}

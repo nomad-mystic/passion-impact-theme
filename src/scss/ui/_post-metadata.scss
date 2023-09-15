@@ -1,0 +1,30 @@
+@use '../abstract/mixins';
+
+.post-metadata {
+    margin: 2.4rem auto;
+
+    &__author,
+    &__categories,
+    &__tags {
+        @include mixins.link-text();
+
+        p.published,
+        p.categories,
+        p.tags {
+            font-size: 1.2rem;
+            margin: 0 auto;
+        }
+    }
+
+    &__author {
+        p.published {}
+    }
+
+    &__tags {
+        p.tags {
+            span {
+                text-transform: capitalize;
+            }
+        }
+    }
+}

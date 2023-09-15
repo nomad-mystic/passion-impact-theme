@@ -1,0 +1,22 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+.post-navigation {
+    margin-top: 3.2rem;
+
+    .nav-links {
+        display: flex;
+        margin: 1.6rem auto;
+
+        div {
+            width: 50%;
+            padding-right: 2.4rem;
+
+            @include mixins.link-text();
+
+            a {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}

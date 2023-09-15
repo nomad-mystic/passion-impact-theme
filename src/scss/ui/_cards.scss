@@ -1,0 +1,152 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.cards {
+    // Content Tabs
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 10rem;
+        width: 95%;
+        margin: 3rem auto 0;
+
+        @include mixins.media-queries('tablet') {
+            width: 100%;
+        }
+    }
+
+    &__card {
+        width: 100%;
+        min-height: 420px;
+        margin: 1.6rem .8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: white;
+        box-shadow: 0 4px 7px 2px rgba(0, 0, 0, 0.2); // @todo Maybe?
+
+        @include mixins.media-queries('tablet') {
+            width: 46%;
+            margin: 1%;
+        }
+
+        @include mixins.media-queries('laptop') {
+            width: 31.3%;
+        }
+
+        // Update for our different states
+        &-on-going {
+            .cards__card-valid {
+                color: variables.$color-green;
+            }
+        }
+
+        &-ended,
+        &-cancelled {
+            .cards__card-valid {
+                color: variables.$color-red;
+            }
+
+            .cards__card-image {
+                filter: grayscale(1);
+            }
+        }
+    }
+
+    &__card-above {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__card-below {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding-left: 5%;
+        padding-bottom: 4%;
+        padding-right: 6%;
+    }
+
+    &__card-image {
+        width: 100%;
+        max-height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        overflow: hidden;
+        height: 0;
+        padding-top: 56.25%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    &__card-date,
+    &__card-valid {
+        font-family: typography.$default-para-font-family;
+        color: variables.$color-light-grey;
+        font-size: 1.2rem;
+        margin-top: 2rem;
+        padding-left: 5%;
+    }
+
+    &__card-valid {
+        margin-top: .8rem;
+
+        &-on-going {
+            color: variables.$color-green;
+        }
+
+        &-ended,
+        &-cancelled {
+            color: variables.$color-red;
+        }
+    }
+
+    &__card-description {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        width: 0;
+        display: none;
+    }
+
+    &__card-title {
+        font-family: typography.$default-header-font-family;
+        font-size: 2.4rem;
+        margin-top: 1.6rem;
+        line-height: 1.2;
+    }
+
+    &__card-link {
+        @include mixins.link-text();
+        width: 36%;
+        margin-top: 1.6rem;
+
+        .link {
+            display: block;
+            font-family: typography.$default-para-font-family;
+            color: variables.$color-green;
+            font-size: 1.6rem;
+            padding: 1rem;
+        }
+    }
+
+    &__pagination {
+        margin: 4.8rem auto 2.4rem;
+        width: 95%;
+    }
+
+    &__load-more {
+        text-align: center;
+        font-size: 2.4rem;
+        color: variables.$color-green;
+        padding: 1.2rem;
+        cursor: pointer;
+    }
+
+    &__isInvisible {
+        display: none;
+    }
+}

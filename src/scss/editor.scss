@@ -1,0 +1,19 @@
+@use './placeholders/colors';
+@use './placeholders/headers';
+@use './placeholders/paragraph';
+@use './placeholders/editor';
+@use './placeholders/blocks';
+@use './abstract/variables';
+@use './base/typography';
+@use './abstract/mixins';
+@use './abstract/mixins/content';
+
+
+// @todo Add this to the pages that need it
+.block-editor__typewriter {
+    @extend %Colors;
+    @extend %Headers;
+    @extend %Paragraph;
+    @extend %Editor;
+    @extend %Blocks;
+}

@@ -1,0 +1,75 @@
+@use '../abstract/variables';
+
+%Backgrounds {
+    .has-default-background-color {
+        background: variables.$color-default;
+    }
+
+    .has-white-background-color {
+        background: variables.$color-white;
+    }
+
+    .has-transparent-background-color {
+        background: transparent;
+    }
+
+    .has-lightest-green-background-color {
+        background: variables.$color-lightest-green;
+    }
+
+    .has-light-green-background-color {
+        background: variables.$color-light-green;
+    }
+
+    .has-green-background-color {
+        background: variables.$color-green;
+    }
+
+    .has-dark-green-background-color {
+        background: variables.$color-dark-green;
+    }
+
+    .has-darkest-green-background-color {
+        background: variables.$color-darkest-green;
+    }
+
+    .has-lightest-yellow-background-color {
+        background: variables.$color-lightest-yellow;
+    }
+
+    .has-light-yellow-background-color {
+        background: variables.$color-light-yellow;
+    }
+
+    .has-yellow-background-color {
+        background: variables.$color-yellow;
+    }
+
+    .has-dark-yellow-background-color {
+        background: variables.$color-dark-yellow;
+    }
+
+    .has-darkest-yellow-background-color {
+        background: variables.$color-darkest-yellow;
+    }
+
+    .has-lightest-red-background-color {
+        background: variables.$color-lightest-red;
+    }
+
+    .has-light-red-background-color {
+        background: variables.$color-light-red;
+    }
+
+    .has-red-background-color {
+        background: variables.$color-red;
+    }
+
+    .has-dark-red-background-color {
+        background: variables.$color-dark-red;
+    }
+
+    .has-darkest-red-background-color {
+        background: variables.$color-darkest-red;
+    }
+}

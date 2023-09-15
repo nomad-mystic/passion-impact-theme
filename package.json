@@ -1,0 +1,63 @@
+{
+    "name": "passion-impact",
+    "version": "20.8.0",
+    "description": "Custom theme for Passion Impact NGO.",
+    "main": "main.js",
+    "scripts": {
+        "dev": "npm run dev",
+        "development": "webpack  --config webpack.config.js --env.development",
+        "prod": "npm run production",
+        "production": "webpack  --config webpack.config.js --env.production"
+    },
+    "keywords": [
+        "WordPress-Theme"
+    ],
+    "author": "Keith Murphy",
+    "license": "GPL-3.0-or-later",
+    "devDependencies": {
+        "@babel/core": "^7.10.6",
+        "@babel/plugin-proposal-async-generator-functions": "^7.10.1",
+        "@babel/plugin-proposal-class-properties": "^7.10.1",
+        "@babel/plugin-proposal-export-default-from": "^7.10.1",
+        "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
+        "@babel/plugin-transform-arrow-functions": "^7.10.1",
+        "@babel/plugin-transform-async-to-generator": "^7.10.1",
+        "@babel/plugin-transform-modules-commonjs": "^7.10.1",
+        "@babel/plugin-transform-object-assign": "^7.10.1",
+        "@babel/plugin-transform-runtime": "^7.10.1",
+        "@babel/preset-env": "^7.10.2",
+        "@babel/preset-react": "^7.10.4",
+        "@babel/runtime": "^7.10.2",
+        "@babel/runtime-corejs3": "^7.10.2",
+        "@vue/babel-preset-app": "^4.5.4",
+        "@vue/compiler-sfc": "^3.0.0-rc.10",
+        "@wordpress/blocks": "^6.24.2",
+        "autoprefixer": "^9.6.1",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^8.1.0",
+        "core-js": "^3.6.5",
+        "css-loader": "^3.2.0",
+        "file-loader": "^6.1.0",
+        "mini-css-extract-plugin": "^0.8.0",
+        "node-sass": "^4.14.1",
+        "postcss-loader": "^3.0.0",
+        "postcss-scss": "^2.0.0",
+        "sass": "^1.26.9",
+        "sass-loader": "^8.0.0",
+        "vue-loader": "^15.9.3",
+        "vue-template-compiler": "^2.6.11",
+        "webpack": "^4.41.0",
+        "webpack-cli": "^3.3.9",
+        "webpack-notifier": "^1.15.0"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.30",
+        "@fortawesome/free-brands-svg-icons": "^5.13.1",
+        "@fortawesome/free-regular-svg-icons": "^5.13.1",
+        "@fortawesome/free-solid-svg-icons": "^5.13.1",
+        "@fortawesome/vue-fontawesome": "^2.0.0",
+        "lodash": "^4.17.21",
+        "postscribe": "^2.0.8",
+        "vue": "^2.6.12"
+    }
+}

@@ -1,0 +1,11 @@
+.tag-page {
+    &__title {
+        span {
+            text-transform: capitalize;
+        }
+    }
+
+    &__results {
+        margin: 0 3.2rem 1.6rem 0;
+    }
+}

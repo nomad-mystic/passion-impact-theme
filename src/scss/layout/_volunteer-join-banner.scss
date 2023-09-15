@@ -1,0 +1,58 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.volunteer-join-banner {
+    background-color: variables.$color-green;
+
+    &--light {
+        background-color: variables.$color-white;
+    }
+
+    width: 100%;
+    height: auto;
+
+    @include mixins.media-queries('tablet') {
+        height: 150px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        height: 100%;
+        padding: 2.4rem;
+
+        @include mixins.media-queries('tablet') {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+        }
+
+        .title,
+        .sub-title {
+            color: variables.$color-white;
+            font-family: typography.$default-para-font-family;
+        }
+
+        .title {
+            font-size: 2.8rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .sub-title {
+            font-size: 1.6rem;
+        }
+
+        .join-button {
+            width: 16rem;
+            margin-top: 2.4rem;
+
+            @include mixins.media-queries('tablet') {
+                margin-top: unset;
+            }
+        }
+    }
+}

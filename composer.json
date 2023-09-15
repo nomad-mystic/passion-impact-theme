@@ -1,0 +1,38 @@
+{
+    "name": "keith/passion-impact",
+    "description": "Base WordPress setup for Passion Impact Theme",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Keith Murphy",
+            "email": "nomadmystics@gmail.com"
+        }
+    ],
+    "scripts": {
+        "auto-load-classes": "composer dump-autoload -o"
+    },
+    "autoload": {
+        "psr-4": {
+            "PassionImpact\\": [
+              "classes/"
+            ],
+            "PassionImpact\\Interfaces\\": [
+                "interfaces/"
+            ],
+            "PassionImpact\\Utils\\": [
+              "classes/utils"
+            ],
+            "PassionImpact\\Admin\\": [
+              "classes/admin/"
+            ]
+        }
+    },
+    "minimum-stability": "alpha",
+    "require-dev": {
+        "kint-php/kint": "^3.3"
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}

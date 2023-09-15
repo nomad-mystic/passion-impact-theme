@@ -1,0 +1,247 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+
+.footer {
+    background: variables.$color-default;
+    padding: 1rem 0;
+    text-align: center;
+    overflow-x: hidden;
+
+    @include mixins.media-queries('tablet') {
+        border-top: 2px solid variables.$base-grey;
+        padding: 1rem 2.4rem;
+    }
+
+    &__container {
+        max-width: variables.$max-width;
+
+        @include mixins.media-queries('tablet') {
+            margin: 1rem auto;
+        }
+    }
+
+    h3 {
+        font-family: typography.$default-header-font-family;
+        margin: 2rem auto 1rem;
+        font-size: 2rem;
+        color: variables.$color-white;
+    }
+
+    a {
+        display: block;
+        font-family: typography.$default-para-font-family;
+        font-size: 1.6rem;
+        color: variables.$color-light-grey;
+        text-decoration: none;
+        line-height: 1.6;
+        padding: .5rem 1rem;
+
+        @include mixins.media-queries('laptop') {
+            line-height: 1;
+            padding: .5rem 0;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto 3rem;
+
+        @include mixins.media-queries('tablet') {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+    }
+
+    &__navigation {
+        margin: 0;
+        color: variables.$color-white;
+
+        @include mixins.media-queries('laptop') {
+            text-align: left;
+        }
+    }
+
+    &__about-pi {
+        margin: 0;
+        color: variables.$color-white;
+
+        @include mixins.media-queries('laptop') {
+            text-align: left;
+        }
+    }
+
+    &__contact {
+        margin: 0;
+        color: variables.$color-white;
+
+        @include mixins.media-queries('laptop') {
+            text-align: left;
+        }
+
+        .contact-details__details {
+            a {
+                color: variables.$color-light-grey;
+            }
+        }
+    }
+
+    &__newsletter {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+
+        @include mixins.media-queries('tablet') {
+            justify-content: center;
+            padding: 0;
+            border-bottom: 1px solid variables.$base-grey;
+            border-top: 1px solid variables.$base-grey;
+        }
+
+        @include mixins.media-queries('laptop') {
+            justify-content: flex-start;
+            border-bottom: none;
+            border-top: none;
+        }
+
+        .newsletter {
+            @include mixins.media-queries('laptop') {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .text-content {
+                @include mixins.media-queries('tablet') {
+                    margin: 0 0 0 4rem;
+                }
+
+                @include mixins.media-queries('laptop') {
+                    margin: 0 0 1rem 0;
+                }
+
+                h3 {
+                    @include mixins.media-queries('tablet') {
+                        text-align: left;
+                    }
+                }
+
+                h4 {
+                    color: variables.$color-light-grey;
+                    font-size: 1.6rem;
+
+                    @include mixins.media-queries('tablet') {
+                        text-align: left;
+                    }
+                }
+            }
+
+            &__form {
+                width: 95%;
+                margin: 1.6rem auto;
+
+                @include mixins.media-queries('tablet') {
+                    margin: unset;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+
+                &--ishidden {
+                    display: none;
+                }
+
+                .modal {
+                    width: 100%;
+                }
+
+                .modal-content {
+                    width: 90%;
+
+                    @include mixins.media-queries('tablet') {
+                        width: 75%;
+                    }
+
+                    @include mixins.media-queries('laptop') {
+                        width: 50%;
+                    }
+                }
+            }
+
+            button {
+                width: 100%;
+                margin: 0 auto;
+                padding: 1rem;
+                text-transform: uppercase;
+                border: 1px solid variables.$color-green;
+                cursor: pointer;
+
+                @include mixins.media-queries('tablet') {
+                    padding: 1.2rem;
+                }
+            }
+        }
+    }
+
+    &__span-decorator {
+        display: none;
+
+        @include mixins.media-queries('laptop') {
+            display: block;
+            border-top: 1px solid variables.$color-white;
+            width: 100%;
+            margin: 1rem -9999rem;
+            padding: 0 9999rem;
+        }
+    }
+
+    &__copyright {
+        margin: 2.5rem auto;
+        font-size: 1.6rem;
+        padding: 0 2rem;
+        width: 100%;
+
+        @include mixins.media-queries('tablet') {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto;
+            border-top: none;
+        }
+
+        @include mixins.media-queries('laptop') {
+            flex-direction: row;
+            align-items: end;
+            font-size: 1rem;
+            margin: 2rem auto 1rem;
+            padding: 0;
+        }
+
+        a {
+            display: inline;
+            font-size: 1rem;
+        }
+
+        p,
+        a {
+            margin: 1rem auto;
+            line-height: 1.5;
+            color: variables.$color-light-grey;
+        }
+
+        p:nth-child(1) {
+            @include mixins.media-queries('laptop') {
+                margin: 1rem auto 1rem 0;
+            }
+        }
+
+        p:nth-child(2) {
+            @include mixins.media-queries('laptop') {
+                margin: 1rem 0 1rem auto;
+            }
+        }
+    }
+}

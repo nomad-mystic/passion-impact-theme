@@ -1,0 +1,94 @@
+@use '../abstract/variables';
+@use '../base/typography';
+@use '../abstract/mixins';
+@use '../abstract/mixins/content';
+
+%Elements {
+
+    .basic-content {
+        &__content {
+            p {
+                margin: 2.4rem auto;
+            }
+
+            a,
+            p {
+              font-family: typography.$default-para-font-family;
+            }
+
+            a {
+                text-decoration: none;
+                color: variables.$color-green;
+                transition: color .25s linear;
+
+                &:visited {
+                    text-decoration: none;
+                    color: variables.$color-light-green;
+                }
+
+                &:active {
+                    text-decoration: none;
+                    color: variables.$color-light-green;
+                }
+
+                &:hover {
+                    text-decoration: none;
+                    color: variables.$color-dark-green;
+                }
+            }
+
+            strong {
+                font-weight: bold;
+            }
+
+            em {
+                font-style: italic;
+            }
+
+            ul {
+                list-style: disc inside;
+
+                ul {
+                    margin: 0 auto 0 1.6rem;
+                    list-style-type: circle;
+                }
+            }
+
+            ol {
+                list-style: auto inside;
+            }
+
+            ul, ol {
+                margin: 2.4rem auto;
+
+                li {
+                    @include content.content-paragraph();
+
+                    &::marker {
+                        color: variables.$color-dark-green;
+                        font-size: 1.2em;
+                        unicode-bidi: isolate;
+                        font-variant-numeric: tabular-nums;
+                        text-transform: none;
+                    }
+                }
+            }
+
+            .iframe-container {
+                position: relative;
+                overflow: hidden;
+                padding-top: 56.25%;
+                height: 100%;
+
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: 0;
+                }
+            }
+        }
+    }
+}
